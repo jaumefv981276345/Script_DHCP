@@ -31,7 +31,7 @@ sudo apt install kea -y
 
 # Download GitHub configuration file
 echo "Descargando archivo de configuración..."
-curl "$CONFIG_URL"
+curl -O -L "$CONFIG_URL"
 
 # Convertir a formato Unix por si viene de Windows
 dos2unix kea-dhcp4.conf
@@ -43,5 +43,6 @@ sudo cp kea-dhcp4.conf /etc/kea/kea-dhcp4.conf
 echo "Reiniciando KEA DHCP..."
 sudo systemctl restart kea-dhcp4-server
 sudo systemctl enable kea-dhcp4-server
+
 
 echo "¡Configuración de KEA DHCP completada!"
